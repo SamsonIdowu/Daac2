@@ -20,6 +20,8 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
           script: |
+            sudo su
+            cd /var/ossec/etc
             echo "Copying updated files to Wazuh ruleset..."
             git pull origin main || true
             echo "Ruleset update added!!!"
